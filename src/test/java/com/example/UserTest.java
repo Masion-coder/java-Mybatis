@@ -43,4 +43,13 @@ public class UserTest {
         User user = new User(6, "kun", "5678", "坤", 30);
         userMapper.update(user);
     }
+
+    /*
+     * 测试根据用户名和密码查询用户
+     */
+    @Test
+    public void testFindByUsernameAndPassword() {
+        User user = userMapper.findByUsernameAndPassword("kun", "5678");
+        System.out.println(user);
+    }
 }
