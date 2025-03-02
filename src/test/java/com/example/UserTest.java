@@ -15,4 +15,13 @@ public class UserTest {
     public void testFindAll() {
         userMapper.findAll().forEach(System.out::println);
     }
+
+    /*
+     * 测试删除用户
+     */
+    @Test
+    public void testDeleteById() {
+        Integer n = userMapper.deleteById(5);
+        System.out.println("删除行数：" + n);
+    }
 }

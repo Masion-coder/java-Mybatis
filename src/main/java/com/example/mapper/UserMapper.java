@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -16,4 +17,11 @@ public interface UserMapper {
     
     @Select("select * from user")
     public List<User> findAll();
+
+    /*
+     * 根据id删除用户
+     */
+    // @Delete("delete from user where id = ${id}") // ${} 表示直接替换，不需要预编译，同静态SQL
+    @Delete("delete from user where id = #{id}") // #{} 表示预编译，需要预编译，同动态SQL
+    public Integer deleteById(Integer id);
 }
