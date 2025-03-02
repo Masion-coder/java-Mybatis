@@ -3,6 +3,7 @@ package com.example.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -24,4 +25,10 @@ public interface UserMapper {
     // @Delete("delete from user where id = ${id}") // ${} 表示直接替换，不需要预编译，同静态SQL
     @Delete("delete from user where id = #{id}") // #{} 表示预编译，需要预编译，同动态SQL
     public Integer deleteById(Integer id);
+
+    /*
+     * 新增用户
+     */
+    @Insert("insert into user(username, password, name, age) values (#{username}, #{password}, #{name}, #{age})")
+    public Integer insert(User user);
 }

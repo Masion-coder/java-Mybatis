@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.mapper.UserMapper;
+import com.example.module.User;
 
 @SpringBootTest // SpringBoot单元测试的注解 - 当前测试类中的测试方法运行时，会启动SpringBoot应用 - IOC容器
 public class UserTest {
@@ -23,5 +24,14 @@ public class UserTest {
     public void testDeleteById() {
         Integer n = userMapper.deleteById(5);
         System.out.println("删除行数：" + n);
+    }
+
+    /*
+     * 测试新增
+     */
+    @Test
+    public void testInsert() {
+        User user = new User(null, "abc", "5678", "kun", 30);
+        userMapper.insert(user);
     }
 }
