@@ -34,4 +34,13 @@ public class UserTest {
         User user = new User(null, "abc", "5678", "kun", 30);
         userMapper.insert(user);
     }
+
+    /*
+     * 测试更新
+     */
+    @Test
+    public void testUpdate() {
+        User user = new User(6, "kun", "5678", "坤", 30);
+        userMapper.update(user);
+    }
 }

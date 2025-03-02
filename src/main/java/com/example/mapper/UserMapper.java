@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.module.User;
 
@@ -31,4 +32,10 @@ public interface UserMapper {
      */
     @Insert("insert into user(username, password, name, age) values (#{username}, #{password}, #{name}, #{age})")
     public Integer insert(User user);
+
+    /*
+     * 根据id、密码更新用户
+     */
+    @Update("update user set username = #{username}, name = #{name}, age = #{age} where id = #{id} and password = #{password}")
+    public Integer update(User user);
 }
